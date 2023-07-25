@@ -14,13 +14,15 @@ for filename in os.listdir('.'):    #python code loop in folder file
         image= Image.open(filename)
         width , heigth = image.size    #python pillow get image width and height
         #print(width , heigth)
-        if width > file_size and heigth > file_size:
+        '''if width > file_size and heigth > file_size:
             if width > heigth:
-                heigth= int(file_size/width)*heigth
+                heigth= int((file_size/width)*heigth)
                 width= file_size
 
             else:
                 width= int((file_size/heigth)*width)
                 heigth= file_size
-            image = image.resize(width,heigth)
-            image = image.save(output_folder,filename)
+            image = image.resize((width,heigth))
+            image = image.save(output_folder,filename)'''
+        image = image.resize((file_size,file_size))
+        image = image.save(output_folder,filename.lower())
